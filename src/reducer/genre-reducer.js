@@ -1,5 +1,11 @@
 'use strict';
 
 export default (state = [], action = {}) => {
-  return state;
+  switch(action.type) {
+    case 'GENRE_CREATE':
+      return [ ...state, action.payload ];
+    default:
+      return state;
+  }
+  
 }
