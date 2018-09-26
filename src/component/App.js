@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import '../styles/App.css';
 
 import createAppStore from '../lib/store';
@@ -10,6 +11,7 @@ const store = createAppStore();
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
@@ -24,6 +26,7 @@ class App extends Component {
           <Route exact path="/" component={Dashboard}/>
         </div>
       </BrowserRouter>
+      </Provider>
     );
   }
 }
