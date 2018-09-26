@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from './Form';
 
-export default class DashboardContainer extends Component {
+import * as actions from '../actions/genre-actions';
 
-  handleAdd = (book) => {
-    console.log(book);
+class DashboardContainer extends Component {
+
+  handleAdd = (genre) => {
+    this.props.createGenre(genre);
   }
 
   render(){
@@ -16,3 +19,16 @@ export default class DashboardContainer extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    genre: state.genres,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  createGenre: (genre) => dispatch(actions.createGenre(genre)),
+})
+
+const connector = connect(mapStateToProps,mapDispatchToProps);
+export default connector(DashboardContainer);
