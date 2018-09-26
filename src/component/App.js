@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import '../styles/App.css';
 
+import createAppStore from '../lib/store';
 import Dashboard from './Dashboard';
+
+const store = createAppStore();
 
 class App extends Component {
   render() {
