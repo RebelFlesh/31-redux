@@ -16,7 +16,7 @@ class DashboardContainer extends Component {
         <h2>Dashboard</h2>
         <Form handleComplete={this.handleAdd}/>
         {this.props.genres.map(genre => (
-          <Item key={genre._id} genre={genre}/>
+          <Item key={genre._id} genre={genre} handleDelete={this.props.deleteGenre}/>
         ))}
       </React.Fragment>
     );
@@ -31,6 +31,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   createGenre: (genre) => dispatch(actions.createGenre(genre)),
+  deleteGenre: (genre) => dispatch(actions.deleteGenre(genre)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
