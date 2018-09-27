@@ -1,4 +1,3 @@
-'use strict';
 import uuid from 'uuid';
 
 export const createGenre = (genre) => {
