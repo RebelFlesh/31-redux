@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Form from './Form';
+import Item from './Item';
 
 import * as actions from '../actions/genre-actions';
 
 class DashboardContainer extends Component {
-
   handleAdd = (genre) => {
     this.props.createGenre(genre);
   }
@@ -15,6 +15,9 @@ class DashboardContainer extends Component {
       <React.Fragment>
         <h2>Dashboard</h2>
         <Form handleComplete={this.handleAdd}/>
+        {this.props.genres.map(genre => (
+          <Item key={genre._id} genre={genre}/>
+        ))}
       </React.Fragment>
     );
   }
@@ -22,7 +25,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    genre: state.genres,
+    genres: state, //.genres,
   }
 }
 
