@@ -7,3 +7,10 @@ export const createGenre = (genre) => {
     payload: genre,
   }
 }
+
+export const deleteGenre = (genre) => {
+  return{
+    type: 'GENRE_DELETE',
+    payload: genre,
+  }
+}
