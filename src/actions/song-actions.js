@@ -7,3 +7,10 @@ export const createSong = (song) => {
     payload: song,
   }
 }
+
+export const deleteSong = (song) => {
+  return{
+    type:'SONG_DELETE',
+    payload: song,
+  }
+}
