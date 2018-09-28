@@ -1,5 +1,5 @@
 import reducer from './song-reducer';
-import { createSong } from '../actions/song-actions'
+import { createSong, deleteSong } from '../actions/song-actions'
 
 describe('song-reducer', () => {
   it('returns the intial state without valid aciton given', () => {
@@ -37,6 +37,17 @@ describe('song-reducer', () => {
       expect(result[0].title).toBe('Let Her Be');
       expect(result[1].title).toBe('Hey Jude');
       expect(result.length).toBe(2);
+    });
+  });
+  describe('SONG_DELETE', () => {
+    it('removes a song with a matching object', () => {
+      let state = [{ _id:1, title:'Norwigean Wood', artist:'The Beatles'},{ _id:2, title:'A Day in the Life', artist:'The Beatles'}];
+      let action = deleteSong({ _id:1, title:'Norwigean Wood', artist:'The Beatles'});
+
+      let result = reducer(state,action);
+
+      expect(result.length).toBe(1);
+      expect(result[0]._id).toBe(2);
     });
   });
 });
