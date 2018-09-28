@@ -1,23 +1,23 @@
 import uuid from 'uuid';
 
-export const createGenre = (genre) => {
-  genre._id = uuid();
+export const createPlaylist = (playlist) => {
+  playlist._id = uuid();
   return { 
-    type: 'GENRE_CREATE',
-    payload: genre,
+    type: 'PLAYLIST_CREATE',
+    payload: playlist,
   }
 }
 
-export const deleteGenre = (genre) => {
+export const deletePlaylist = (playlist) => {
   return{
-    type: 'GENRE_DELETE',
-    payload: genre,
+    type: 'PLAYLIST_DELETE',
+    payload: playlist,
   }
 }
 
-export const updateGenre = (genre) => {
+export const updatePlaylist = (playlist) => {
   return{
-    type: 'GENRE_UPDATE',
-    payload: genre,
+    type: 'PLAYLIST_UPDATE',
+    payload: playlist,
   }
 }

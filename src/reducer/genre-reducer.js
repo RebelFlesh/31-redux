@@ -1,11 +1,11 @@
 export default (state = [], action = {}) => {
   switch(action.type) {
-    case 'GENRE_CREATE':
+    case 'PLAYLIST_CREATE':
       return [ ...state, action.payload ];
-    case 'GENRE_DELETE':
-      return state.filter(genre => genre._id !== action.payload._id);
-    case 'GENRE_UPDATE':
-      return state.map(genre=> genre._id === action.payload._id ? action.payload : genre);
+    case 'PLAYLIST_DELETE':
+      return state.filter(playlist => playlist._id !== action.payload._id);
+    case 'PLAYLIST_UPDATE':
+      return state.map(playlist=> playlist._id === action.payload._id ? action.payload : playlist);
     default:
       return state;
   }

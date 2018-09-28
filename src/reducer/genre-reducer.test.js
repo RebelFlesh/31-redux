@@ -1,8 +1,8 @@
 import reducer from './genre-reducer';
-import { createGenre, deleteGenre, updateGenre } from '../actions/genre-actions';
+import { createPlaylist, deletePlaylist, updatePlaylist } from '../actions/genre-actions';
 
-describe('genre-reducer', ()=> {
-  describe('GENRE_CREATE', ()=>{
+describe('playlist-reducer', ()=> {
+  describe('PLAYLIST_CREATE', ()=>{
     it('returns inital state', ()=> {
       let result = reducer();
       expect(result).toEqual([]);
@@ -14,35 +14,35 @@ describe('genre-reducer', ()=> {
       expect(result).toBe(state);
     });
   
-    it('returns new state with payload added when it recieves GENRE_CREATE action', () => {
+    it('returns new state with payload added when it recieves PLAYLIST_CREATE action', () => {
       let state = [{ _id:1, name:'Ethan'}];
-      let action = createGenre({name:'David'});
+      let action = createPlaylist({name:'David'});
       let result = reducer(state,action);
       expect(result[0]).toBe(state[0]);
       expect(result[1].name).toBe('David');
       expect(result[1]._id).toBeDefined();
     });
   });
-  describe('GENRE_DELETE', () => {
-    it('removes a genre with matching id, leaving an empty state', () => {
+  describe('PLAYLIST_DELETE', () => {
+    it('removes a playlist with matching id, leaving an empty state', () => {
       let state = [{ _id:1, name:'Ethan'}];
-      let action = deleteGenre({ _id:1, name:'Ethan'});
+      let action = deletePlaylist({ _id:1, name:'Ethan'});
       let result = reducer(state,action);
       expect(state).toBe(state);
       expect(result).toEqual([]);
     });
-    it('removes a genre from a list of genres', () => {
+    it('removes a playlist from a list of playlists', () => {
       let state = [{ _id:1, name:'Ethan'},{ _id:2, name:'David'}];
-      let action = deleteGenre({ _id:1, name: 'Ethan'});
+      let action = deletePlaylist({ _id:1, name: 'Ethan'});
       let result = reducer(state,action);
       expect(result.length).toBe(1);
       expect(result[0]._id).toBe(2);
     });
   });
-  describe('GENRE_UPDATE', () => {
+  describe('PLAYLIST_UPDATE', () => {
     it('updates the state for a single premade object', () => {
       let state = [{ _id:1, name:'Ethan'},{ _id:2, name:'David'}];
-      let action = updateGenre({_id:1, name:'Jay'});
+      let action = updatePlaylist({_id:1, name:'Jay'});
       let result = reducer(state,action);
 
       expect(result.length).toBe(2);

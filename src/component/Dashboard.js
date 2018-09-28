@@ -7,10 +7,10 @@ import * as actions from '../actions/genre-actions';
 
 class DashboardContainer extends Component {
   handleAdd = (playlist) => {
-    this.props.createGenre(playlist);
+    this.props.createPlaylist(playlist);
   }
   handleUpdate = (playlist) => {
-    this.props.updateGenre(playlist);
+    this.props.updatePlaylist(playlist);
   }
 
   render(){
@@ -22,7 +22,7 @@ class DashboardContainer extends Component {
           <Item 
             key={playlist._id} 
             playlist={playlist} 
-            handleDelete={this.props.deleteGenre}
+            handleDelete={this.props.deletePlaylist}
             handleComplete={this.handleUpdate}
             />
         ))}
@@ -38,9 +38,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  createGenre: (playlist) => dispatch(actions.createGenre(playlist)),
-  deleteGenre: (playlist) => dispatch(actions.deleteGenre(playlist)),
-  updateGenre: (playlist) => dispatch(actions.updateGenre(playlist)),
+  createPlaylist: (playlist) => dispatch(actions.createPlaylist(playlist)),
+  deletePlaylist: (playlist) => dispatch(actions.deletePlaylist(playlist)),
+  updatePlaylist: (playlist) => dispatch(actions.updatePlaylist(playlist)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
