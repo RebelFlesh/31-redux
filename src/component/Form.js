@@ -9,7 +9,7 @@ export default class Form extends Component {
       playlist._id = this.props.currentPlaylist._id;
     }
     playlist.title=event.target.title.value;
-    playlist.author=event.target.author.value;
+    playlist.description=event.target.description.value;
     this.props.handleComplete(playlist);
   }
 
@@ -18,10 +18,18 @@ export default class Form extends Component {
 
     //TODO: remake form for playlists
     return(
+      this.props.currentPlaylist? 
+      <React.Fragment>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="title" placeholder="title" defaultValue={this.props.currentPlaylist.title}></input>
+          <input type="text" name="description" placeholder="description" defaultValue={this.props.currentPlaylist.description}></input>
+          <input type="submit" value={buttonText}></input>
+        </form>
+      </React.Fragment>:
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="title" placeholder="title"></input>
-          <input type="text" name="author" placeholder="author"></input>
+          <input type="text" name="description" placeholder="description"></input>
           <input type="submit" value={buttonText}></input>
         </form>
       </React.Fragment>
