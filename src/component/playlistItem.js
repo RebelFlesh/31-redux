@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Form from './playlistForm';
 import SongForm from './songForm';
+import SongItem from './songItem';
 
 import * as songActions from '../actions/song-actions';
 
@@ -20,6 +22,15 @@ class PlaylistItemContainer extends Component {
           handleComplete={this.props.createSong} 
           playlist_id={this.props.playlist._id}
         />
+        {this.props.songs
+          .filter(song => song.playlist === this.props.playlist._id)
+          .map(song => 
+            <SongItem
+              key={song._id}
+              song={song}
+              handleDelete='Add delete'
+            />
+        )}
       </React.Fragment>
     )
   }
