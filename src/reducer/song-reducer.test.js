@@ -17,7 +17,7 @@ describe('song-reducer', () => {
 
     expect(testTwoResult).toBe(state);
   });
-  describe('CREATE_SONG', () => {
+  describe('SONG_CREATE', () => {
     it('creates a new song in an empty list', ()=> {
       let state = [];
       let action = createSong({title:'Help', artist:'The Beatles'});
