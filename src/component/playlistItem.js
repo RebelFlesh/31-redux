@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from './playlistForm';
 import SongForm from './songForm';
 
-export default class PlaylistItem extends Component {
+import * as songActions from '../actions/song-actions';
+
+class PlaylistItemContainer extends Component {
   deleteObject = () => {
     this.props.handleDelete(this.props.playlist)
   }
@@ -18,3 +21,16 @@ export default class PlaylistItem extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    songs: state.songs,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  createSong: (song) => dispatch(songActions.createSong(song)),
+})
+
+const connector = connect(mapStateToProps,mapDispatchToProps);
+export default connector(PlaylistItemContainer);
