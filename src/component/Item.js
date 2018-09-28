@@ -10,7 +10,7 @@ export default class GenreItem extends Component {
     return(
       <React.Fragment>
         <div>{this.props.genre.title}</div>
-        <Form/>
+        <Form handleComplete={this.props.handleComplete} currentGenre={this.props.genre}/>
         <button onClick={this.deleteObject}>Delete</button>
       </React.Fragment>
     )
