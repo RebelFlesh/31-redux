@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from '../reducer/genre-reducer';
+import reducer from '../reducer/playlist-reducer';
 
 export default () => {
   return createStore(reducer);

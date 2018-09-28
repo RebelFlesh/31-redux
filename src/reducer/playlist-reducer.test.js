@@ -1,5 +1,5 @@
-import reducer from './genre-reducer';
-import { createPlaylist, deletePlaylist, updatePlaylist } from '../actions/genre-actions';
+import reducer from './playlist-reducer';
+import { createPlaylist, deletePlaylist, updatePlaylist } from '../actions/playlist-actions';
 
 describe('playlist-reducer', ()=> {
   describe('PLAYLIST_CREATE', ()=>{

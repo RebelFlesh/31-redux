@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Form from './Form';
 import Item from './Item';
 
-import * as actions from '../actions/genre-actions';
+import * as actions from '../actions/playlist-actions';
 
 class DashboardContainer extends Component {
   handleAdd = (playlist) => {
