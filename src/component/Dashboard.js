@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import Form from './Form';
 import Item from './Item';
 
-import * as actions from '../actions/genre-actions';
+import * as actions from '../actions/playlist-actions';
 
 class DashboardContainer extends Component {
-  handleAdd = (genre) => {
-    this.props.createGenre(genre);
+  handleAdd = (playlist) => {
+    this.props.createPlaylist(playlist);
   }
-  handleUpdate = (genre) => {
-    this.props.updateGenre(genre);
+  handleUpdate = (playlist) => {
+    this.props.updatePlaylist(playlist);
   }
 
   render(){
@@ -18,11 +18,11 @@ class DashboardContainer extends Component {
       <React.Fragment>
         <h2>Dashboard</h2>
         <Form handleComplete={this.handleAdd}/>
-        {this.props.genres.map(genre => (
+        {this.props.playlists.map(playlist => (
           <Item 
-            key={genre._id} 
-            genre={genre} 
-            handleDelete={this.props.deleteGenre}
+            key={playlist._id} 
+            playlist={playlist} 
+            handleDelete={this.props.deletePlaylist}
             handleComplete={this.handleUpdate}
             />
         ))}
@@ -33,14 +33,14 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    genres: state, //.genres,
+    playlists: state,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  createGenre: (genre) => dispatch(actions.createGenre(genre)),
-  deleteGenre: (genre) => dispatch(actions.deleteGenre(genre)),
-  updateGenre: (genre) => dispatch(actions.updateGenre(genre)),
+  createPlaylist: (playlist) => dispatch(actions.createPlaylist(playlist)),
+  deletePlaylist: (playlist) => dispatch(actions.deletePlaylist(playlist)),
+  updatePlaylist: (playlist) => dispatch(actions.updatePlaylist(playlist)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
