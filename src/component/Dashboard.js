@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Form from './Form';
-import Item from './Item';
+import Form from './playlistForm';
+import Item from './playlistItem';
 
 import * as actions from '../actions/playlist-actions';
 

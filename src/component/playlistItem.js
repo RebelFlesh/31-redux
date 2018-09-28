@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import Form from './playlistForm';
 
 export default class PlaylistItem extends Component {
   deleteObject = () => {

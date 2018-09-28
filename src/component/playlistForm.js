@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Form extends Component {
+export default class playlistForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -14,23 +14,20 @@ export default class Form extends Component {
   }
 
   render(){
-    let buttonText = this.props.currentPlaylist ? 'update' : 'submit';
-
-    //TODO: remake form for playlists
     return(
       this.props.currentPlaylist? 
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="title" placeholder="title" defaultValue={this.props.currentPlaylist.title}></input>
           <input type="text" name="description" placeholder="description" defaultValue={this.props.currentPlaylist.description}></input>
-          <input type="submit" value={buttonText}></input>
+          <input type="submit" value='update'></input>
         </form>
       </React.Fragment>:
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="title" placeholder="title"></input>
           <input type="text" name="description" placeholder="description"></input>
-          <input type="submit" value={buttonText}></input>
+          <input type="submit" value='submit'></input>
         </form>
       </React.Fragment>
     )
