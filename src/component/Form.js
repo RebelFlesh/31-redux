@@ -4,18 +4,19 @@ export default class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let book={};
-    if(this.props.currentGenre){
-      book._id = this.props.currentGenre._id;
+    let playlist={};
+    if(this.props.currentPlaylist){
+      playlist._id = this.props.currentPlaylist._id;
     }
-    book.title=event.target.title.value;
-    book.author=event.target.author.value;
-    this.props.handleComplete(book);
+    playlist.title=event.target.title.value;
+    playlist.author=event.target.author.value;
+    this.props.handleComplete(playlist);
   }
 
   render(){
-    let buttonText = this.props.currentGenre ? 'update' : 'submit';
+    let buttonText = this.props.currentPlaylist ? 'update' : 'submit';
 
+    //TODO: remake form for playlists
     return(
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
