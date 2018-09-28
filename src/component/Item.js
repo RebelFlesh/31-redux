@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Form from './Form';
 
-export default class GenreItem extends Component {
+export default class PlaylistItem extends Component {
   deleteObject = () => {
-    this.props.handleDelete(this.props.genre)
+    this.props.handleDelete(this.props.playlist)
   }
 
   render(){
     return(
       <React.Fragment>
-        <div>{this.props.genre.title}</div>
-        <Form handleComplete={this.props.handleComplete} currentGenre={this.props.genre}/>
+        <div>{this.props.playlist.title}</div>
+        <Form handleComplete={this.props.handleComplete} currentPlaylist={this.props.playlist}/>
         <button onClick={this.deleteObject}>Delete</button>
       </React.Fragment>
     )
