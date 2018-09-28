@@ -16,7 +16,10 @@ class PlaylistItemContainer extends Component {
         <div>{this.props.playlist.title}</div>
         <Form handleComplete={this.props.handleComplete} currentPlaylist={this.props.playlist}/>
         <button onClick={this.deleteObject}>Delete</button>
-        <SongForm/>
+        <SongForm 
+          handleComplete={this.props.createSong} 
+          playlist_id={this.props.playlist._id}
+        />
       </React.Fragment>
     )
   }
