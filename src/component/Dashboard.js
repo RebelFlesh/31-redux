@@ -33,7 +33,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    playlists: state,
+    playlists: state.playlists,
   }
 }
 
