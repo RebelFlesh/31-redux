@@ -1,5 +1,5 @@
 import reducer from './genre-reducer';
-import { createGenre, deleteGenre } from '../actions/genre-actions';
+import { createGenre, deleteGenre, updateGenre } from '../actions/genre-actions';
 
 describe('genre-reducer', ()=> {
   describe('GENRE_CREATE', ()=>{
@@ -37,6 +37,16 @@ describe('genre-reducer', ()=> {
       let result = reducer(state,action);
       expect(result.length).toBe(1);
       expect(result[0]._id).toBe(2);
+    });
+  });
+  describe('GENRE_UPDATE', () => {
+    it('updates the state for a single premade object', () => {
+      let state = [{ _id:1, name:'Ethan'},{ _id:2, name:'David'}];
+      let action = updateGenre({_id:1, name:'Jay'});
+      let result = reducer(state,action);
+
+      expect(result.length).toBe(2);
+      expect(result[0]).toEqual({_id:1, name:'Jay'});
     });
   });
 });

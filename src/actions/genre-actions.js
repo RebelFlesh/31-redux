@@ -14,3 +14,10 @@ export const deleteGenre = (genre) => {
     payload: genre,
   }
 }
+
+export const updateGenre = (genre) => {
+  return{
+    type: 'GENRE_UPDATE',
+    payload: genre,
+  }
+}
