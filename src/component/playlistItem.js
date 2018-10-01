@@ -29,6 +29,7 @@ class PlaylistItemContainer extends Component {
               key={song._id}
               song={song}
               handleDelete={this.props.deleteSong}
+              handleComplete={this.props.updateSong}
             />
         )}
       </React.Fragment>
@@ -45,6 +46,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   createSong: (song) => dispatch(songActions.createSong(song)),
   deleteSong: (song) => dispatch(songActions.deleteSong(song)),
+  updateSong: (song) => dispatch(songActions.updateSong(song)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
