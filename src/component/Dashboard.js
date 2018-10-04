@@ -4,6 +4,7 @@ import Form from './playlistForm';
 import Item from './playlistItem';
 
 import * as actions from '../actions/playlist-actions';
+import { deletePlaylistSongs } from '../actions/song-actions';
 
 class DashboardContainer extends Component {
   handleAdd = (playlist) => {
@@ -11,6 +12,10 @@ class DashboardContainer extends Component {
   }
   handleUpdate = (playlist) => {
     this.props.updatePlaylist(playlist);
+  }
+  handleDelete = (playlist) => {
+    this.props.deletePlaylist(playlist);
+    this.props.deletePlaylistSongs(playlist);
   }
 
   render(){
@@ -22,7 +27,7 @@ class DashboardContainer extends Component {
           <Item 
             key={playlist._id} 
             playlist={playlist} 
-            handleDelete={this.props.deletePlaylist}
+            handleDelete={this.handleDelete}
             handleComplete={this.handleUpdate}
             />
         ))}
@@ -34,6 +39,7 @@ class DashboardContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     playlists: state.playlists,
+    songs: state.songs
   }
 }
 
@@ -41,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
   createPlaylist: (playlist) => dispatch(actions.createPlaylist(playlist)),
   deletePlaylist: (playlist) => dispatch(actions.deletePlaylist(playlist)),
   updatePlaylist: (playlist) => dispatch(actions.updatePlaylist(playlist)),
+  deletePlaylistSongs: (song) => dispatch(deletePlaylistSongs(song)),
 })
 
 const connector = connect(mapStateToProps,mapDispatchToProps);
