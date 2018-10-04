@@ -15,6 +15,13 @@ export const deleteSong = (song) => {
   }
 }
 
+export const deletePlaylistSongs = (playlist) => {
+  return{
+    type: 'SONGS_DELETE',
+    payload: playlist._id,
+  }
+}
+
 export const updateSong = (song) => {
   return{
     type:'SONG_UPDATE',
