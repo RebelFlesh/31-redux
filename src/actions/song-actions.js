@@ -14,3 +14,10 @@ export const deleteSong = (song) => {
     payload: song,
   }
 }
+
+export const deletePlaylistSongs = (playlist) => {
+  return{
+    type: 'SONGS_DELETE',
+    payload: playlist._id,
+  }
+}
