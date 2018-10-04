@@ -1,5 +1,5 @@
 import reducer from './song-reducer';
-import { createSong, deleteSong, deletePlaylistSongs } from '../actions/song-actions'
+import { createSong, deleteSong, deletePlaylistSongs, updateSong  } from '../actions/song-actions'
 
 describe('song-reducer', () => {
   it('returns the intial state without valid aciton given', () => {
@@ -63,6 +63,17 @@ describe('song-reducer', () => {
 
       expect(result.length).toBe(1);
       expect(result).toEqual([{_id:2, title:'I Wanna Hold Your Hand', artist:'The Beatles', playlist:2},])
+    });
+  });
+  describe('SONG_UPDATE', () => {
+    it('updates a song with a matching _id', () => {
+      let state = [{_id:1, title:'Rocket Raccoon', artist:'The Beatles'}];
+      let action = updateSong({_id:1, title:'Rocky Raccoon', artist:'The Beatles'})
+    
+      let result = reducer( state, action );
+
+      expect(result[0].title).toBe('Rocky Raccoon');
+      expect(result[0].artist).toBe('The Beatles');
     });
   });
 });

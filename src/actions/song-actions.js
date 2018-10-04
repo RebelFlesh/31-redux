@@ -21,3 +21,10 @@ export const deletePlaylistSongs = (playlist) => {
     payload: playlist._id,
   }
 }
+
+export const updateSong = (song) => {
+  return{
+    type:'SONG_UPDATE',
+    payload: song,
+  }
+}
