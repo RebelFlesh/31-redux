@@ -10,11 +10,6 @@ import Dashboard from './Dashboard';
 const store = createAppStore();
 
 class App extends Component {
-  componentDidMount() {
-    store.subscribe(()=> {
-      console.log('sub says',store.getState());
-    });
-  }
   render() {
     return (
       <Provider store={store}>
