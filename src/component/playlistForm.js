@@ -23,13 +23,14 @@ export default class playlistForm extends Component {
           <input type="submit" value='update'></input>
         </form>
       </React.Fragment>:
-      <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+      <div className='createForm'>
+        <form className='bordered' onSubmit={this.handleSubmit}>
+          <h3>Create a playlist</h3>
           <input type="text" name="title" placeholder="title"></input>
           <input type="text" name="description" placeholder="description"></input>
           <input type="submit" value='submit'></input>
         </form>
-      </React.Fragment>
+      </div>
     )
   }
 }
