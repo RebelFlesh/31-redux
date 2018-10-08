@@ -20,8 +20,8 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-            <header className="App-header">
-              <h1 className="App-title">KiloVolt-React</h1>
+            <header>
+              <h1>KiloVolt-React</h1>
               <h2>A Shocking way to display static objects</h2>
               <nav>
                 <ul>
