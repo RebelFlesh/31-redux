@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import '../styles/reset.css';
 import '../styles/App.css';
 
 import createAppStore from '../lib/store';
