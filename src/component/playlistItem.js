@@ -14,8 +14,8 @@ class PlaylistItemContainer extends Component {
 
   render(){
     return(
-      <React.Fragment>
-        <div>{this.props.playlist.title}</div>
+      <div className='bordered playlist'>
+        <h2>{this.props.playlist.title}</h2>
         <Form handleComplete={this.props.handleComplete} currentPlaylist={this.props.playlist}/>
         <button onClick={this.deleteObject}>Delete</button>
         <SongForm 
@@ -32,7 +32,7 @@ class PlaylistItemContainer extends Component {
               handleComplete={this.props.updateSong}
             />
         )}
-      </React.Fragment>
+      </div>
     )
   }
 }

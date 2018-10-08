@@ -21,7 +21,6 @@ class DashboardContainer extends Component {
   render(){
     return(
       <React.Fragment>
-        <h2>Dashboard</h2>
         <Form handleComplete={this.handleAdd}/>
         {this.props.playlists.map(playlist => (
           <Item 
