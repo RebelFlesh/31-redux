@@ -1,6 +1,13 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducer from '../reducer/index';
+import logger from './logger';
+
+let middleware =[
+  logger,
+]
 
 export default () => {
-  return createStore(reducer);
+  return createStore(reducer,
+    applyMiddleware(...middleware)
+  );
 }
